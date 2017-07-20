@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#Run this script at the project root folder
+
+#build controller image
+
+sudo docker build ./cmd/controller -t 127.0.0.1:5000/jobcontroller:v1
+
+
+#build rest image
+
+sudo docker build ./cmd/rest -t 127.0.0.1:5000/web:v1

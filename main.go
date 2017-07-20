@@ -1,30 +1,23 @@
 package main
 
-import (
-	"net/http"
-	"log"
-	"distributedScheduler/routes"
-	"distributedScheduler/utils"
-	"distributedScheduler/controller"
-	"time"
+import(
+	"distributedScheduler/pkg/electionmanager"
+	"github.com/golang/glog"
 )
 
 func main() {
 
-	//Initialize etcd client
-	client := utils.GetEtcdClient("http://127.0.0.1:2379")
+	client := electionmanager.NewEtcdRegistry()
+	resp, err := client.Create("aaa", "v1", 0)
+	if err != nil {
+		glog.Infof("--- err1 : %+v ---\n", err)
+	}
 
-	//Init and start scheduler
-	jobController := controller.New(2*time.Second, client)
-	go utils.RunPeriodically(2*time.Second, jobController.Run)
+	resp, err = client.Create("aaa", "v2", 0)
+	if err != nil {
+		glog.Infof("--- err2 : %+v ---\n", err)
+	}
 
-	//Init and start web front end
-	service := &routes.JobRouter{}
-	service.Initialize(client)
-	service.Register()
-	log.Println("Starting Http Server!")
-	log.Fatal(http.ListenAndServe(":8080", nil))
 
+	glog.Infof("+++ %+v +++", resp)
 }
-
-
