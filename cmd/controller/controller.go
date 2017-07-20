@@ -1,11 +1,11 @@
 package main
 
 import (
-	"distributedScheduler/pkg/utils"
-	"distributedScheduler/pkg/controller"
+	"distributedcronjob/pkg/utils"
+	"distributedcronjob/pkg/controller"
 	"time"
 	"flag"
-	"distributedScheduler/pkg/electionmanager"
+	"distributedcronjob/pkg/electionmanager"
 	"github.com/golang/glog"
 )
 

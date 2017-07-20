@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 	"log"
-	"distributedScheduler/pkg/routes"
-	"distributedScheduler/pkg/utils"
+	"distributedcronjob/pkg/routes"
+	"distributedcronjob/pkg/utils"
 )
 
 func main() {

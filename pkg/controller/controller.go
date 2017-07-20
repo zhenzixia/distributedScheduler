@@ -4,7 +4,7 @@ import (
 	"github.com/emicklei/go-restful/log"
 	"time"
 	"github.com/coreos/etcd/client"
-	"distributedScheduler/pkg/utils"
+	"distributedcronjob/pkg/utils"
 	"github.com/golang/glog"
 )
 

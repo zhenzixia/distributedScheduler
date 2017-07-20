@@ -6,7 +6,7 @@ import (
 	"github.com/coreos/etcd/client"
 	"net/http"
 	"simpleWebTest/pkg/utils"
-	"distributedScheduler/pkg/resource"
+	"distributedcronjob/pkg/resource"
 	"context"
 	"k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/json"
 )
